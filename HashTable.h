@@ -5,7 +5,7 @@
 #include <stdexcept>
 #include "Dict.h"
 #include "TableEntry.h"
-#include "../PRA_2425_P1/ListLinked.h"  
+#include "../PRA_2526_P1/ListLinked.h"  
 
 using namespace std;
 
@@ -63,7 +63,7 @@ class HashTable: public Dict<V>{
         }
 
 
-        //heredados de Dict<V>
+    
         void insert(string key, V value) override{
             TableEntry<V> entrada = TableEntry(key, value);
             int pos = h(key);
@@ -73,7 +73,7 @@ class HashTable: public Dict<V>{
                 }
             }
 
-            table[pos].prepend(entrada);  //añadimos el elemento al principio porque el orden no importa 
+            table[pos].prepend(entrada);
             n++;           
         }
 
