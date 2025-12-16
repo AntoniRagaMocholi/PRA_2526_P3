@@ -20,8 +20,8 @@ class BSTreeDict: public Dict<V> {
         }
         
         void insert(std::string key, V value) override{
-            TableEntry<V> entry(key, value); // Crea una entrada
-            tree->insert(entry); // Inserta en el ABB
+            TableEntry<V> entry(key, value); 
+            tree->insert(entry); 
         }
 
         V search(std::string key) override{
@@ -42,7 +42,7 @@ class BSTreeDict: public Dict<V> {
         }
 
          friend std::ostream& operator<<(std::ostream &out, const BSTreeDict<V> &bs) {
-        out << *bs.tree; // Delegar al operador << de BSTree<TableEntry<V>>
+        out << *bs.tree; 
         return out;
     }
 
@@ -51,5 +51,6 @@ class BSTreeDict: public Dict<V> {
         }        
 
 };
+
 
 #endif
