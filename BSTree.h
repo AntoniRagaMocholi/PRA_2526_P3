@@ -87,30 +87,30 @@ class BSTree{
                 n->right = remove(n->right, e);
             }
 
-            //hemos encontrado el nodo a borrar
+        
             else{            
-                if (n->left != nullptr && n->right != nullptr){  // 1. Tiene dos hijos
-                    n->elem = max(n->left);                  //ponemos el máximo de la izquierda en n->elem 
-                    n->left = remove_max(n->left);                  //borramos el máximo de la izquierda
+                if (n->left != nullptr && n->right != nullptr){ 
+                    n->elem = max(n->left);
+                    n->left = remove_max(n->left);                
                     nelem--;
                     return n;
                 }
-                else if(n->left != nullptr){                // 2. Tiene hijo a la izquierda
-                    BSNode<T>* sustituto = n->left;         //guardamos el hijo izquierdo
-                    delete n;                               //borramos el actual
+                else if(n->left != nullptr){               
+                    BSNode<T>* sustituto = n->left;         
+                    delete n;                            
                     nelem--;
-                    return sustituto;                       //devolvemos el izquierdo
+                    return sustituto;                       
                 }
-                else if(n->right != nullptr){               //3. Tiene hijo a la derecha
-                    BSNode<T>* sustituto = n->right;        //aplicamos lo mismo
+                else if(n->right != nullptr){               
+                    BSNode<T>* sustituto = n->right;   
                     delete n;
                     nelem--;
                     return sustituto;
                 }
                 else{
-                    delete n;                               //4. No tiene hijos :( 
+                    delete n;                            
                     nelem--;
-                    return nullptr;                         //lo borramos y ya jaja :)
+                    return nullptr;                        
                 }
             }
             return n;
@@ -126,9 +126,9 @@ class BSTree{
     }
  
     public:
-        BSTree(): root(nullptr), nelem(0) {}; //constructor
+        BSTree(): root(nullptr), nelem(0) {};
         	
-        ~BSTree(){ //destructor
+        ~BSTree(){
             delete_cascade(root);
         } 
         int size() const{
@@ -163,4 +163,5 @@ class BSTree{
 };
 
 #endif
+
 
